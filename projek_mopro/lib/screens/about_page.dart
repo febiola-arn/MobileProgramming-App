@@ -19,7 +19,6 @@ class AboutPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // App Logo Placeholder (using Icon for now)
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -69,6 +68,7 @@ class AboutPage extends StatelessWidget {
 
   Widget _buildContributorSection() {
     return Container(
+      constraints: const BoxConstraints(maxHeight: 300),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -82,6 +82,7 @@ class AboutPage extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           const Text(
             "Tim Pengembang",
@@ -91,9 +92,23 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          _buildContributorItem("Shatahaq", "Lead Developer"),
-          const Divider(height: 24),
-          _buildContributorItem("Febiola Arn", "Developer"),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _buildContributorItem("Shatahaq", "Lead Developer"),
+                  const Divider(height: 24),
+                  _buildContributorItem("Febiola Arn", "Developer"),
+                  const Divider(height: 24),
+                  _buildContributorItem("Alif", "Developer"),
+                  const Divider(height: 24),
+                  _buildContributorItem("Nadya", "Developer"),
+                  const Divider(height: 24),
+                  _buildContributorItem("Elaine", "Developer"),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
